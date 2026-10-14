@@ -122,27 +122,47 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
+        .pos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .pos-table th {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 0.9rem;
+        }
+
+        .pos-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .pos-table tbody tr:hover {
+            background-color: #f1f8f5;
+        }
     </style>
 </head>
 <body>
 
-    <?php 
-        // Helper to handle relative URLs cleanly for both spark serve and MAMP
-        $baseUrl = base_url();
-        if (strpos($_SERVER['REQUEST_URI'] ?? '', 'index.php') !== false) {
-            $baseUrl .= 'index.php/';
-        }
-    ?>
-    
     <header class="pos-navbar">
         <div class="pos-brand">
             🖥️ POS Admin Terminal
         </div>
         <nav class="pos-nav-links">
-            <a href="./" class="pos-nav-btn">🏠 Home</a>
-            <a href="customers" class="pos-nav-btn">👥 Customers</a>
-            <a href="users" class="pos-nav-btn">🔐 User Accounts</a>
-            <a href="about" class="pos-nav-btn">ℹ️ About</a>
+            <a href="<?= site_url('/') ?>" class="pos-nav-btn">🏠 Home</a>
+            <a href="<?= site_url('customers') ?>" class="pos-nav-btn">👥 Customers</a>
+            <a href="<?= site_url('users') ?>" class="pos-nav-btn">🔐 User Accounts</a>
+            <a href="<?= site_url('about') ?>" class="pos-nav-btn">ℹ️ About</a>
         </nav>
     </header>
 
